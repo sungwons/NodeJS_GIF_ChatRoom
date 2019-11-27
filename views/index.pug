@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div Check Console & Network Tab (Press F12).
+  script(src='socket.io/socket.io.js')
+  script.
+    var socket = io.connect('http://localhost:8005', {
+      path: '/socket.io',
+      transports: ['websocket']
+    });
+    socket.on('news', function (data) {
+      console.log(data);
+      socket.emit('reply', 'Hello Node.JS');
+    });
+

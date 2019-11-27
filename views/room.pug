@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  fieldset
+    legend Chatroom Created
+    form(action='/room' method='post')
+      div: input(name='title' placeholder='Chatroom Name')
+      div: input(name='max' type='number' placeholder='Max ppl(min 2ppl)' min='2' value='10')
+      div: input(name='password' type='password' placeholder='Password(If no, Open Chatroom)')
+      div: button(type='submit') Create
